@@ -98,6 +98,10 @@ public class PermissionManager {
         }
     }
 
+    public void test(){
+        
+    }
+
 
 //    @Override
 //    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults)
