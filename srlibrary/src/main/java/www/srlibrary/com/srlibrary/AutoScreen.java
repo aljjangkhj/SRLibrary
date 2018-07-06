@@ -1,5 +1,6 @@
 package www.srlibrary.com.srlibrary;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -7,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AutoScreen extends AppCompatActivity{
+public class AutoScreen {
 
     static float ScreenRate = 0;
     static public int DEVICE_SCREEN_HEIGHT = 2560; //
@@ -16,10 +17,10 @@ public class AutoScreen extends AppCompatActivity{
     public final static int BaseHeight = 2560; // xml들이 작업된 기준 높이.
 
     // option 1 = 높이기준으로 화면조절, 2 = 가로 기준으로 화면조절
-    private void Adjust(Context context, View view, int option)
+    private static void Adjust(Context context, View view, int option)
     {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         DEVICE_SCREEN_HEIGHT = displayMetrics.heightPixels;
         DEVICE_SCREEN_WIDTH = displayMetrics.widthPixels;
 
@@ -210,11 +211,11 @@ public class AutoScreen extends AppCompatActivity{
         v.setLayoutParams(par);
     }
 
-    public void init_autoscreen(int option)
+    public static void init_autoscreen(Context context, int option)
     {
         try
         {
-            Adjust(this, getWindow().getDecorView(), option);
+            Adjust(context, ((Activity)context).getWindow().getDecorView(), option);
         }
         catch (Exception e)
         {
