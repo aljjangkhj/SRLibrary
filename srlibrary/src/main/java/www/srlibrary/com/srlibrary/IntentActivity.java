@@ -1,32 +1,32 @@
 package www.srlibrary.com.srlibrary;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 
-public class IntentActivity extends AppCompatActivity{
+public class IntentActivity {
 
-    public void MoveToMain(Intent intent)
+    public static void MoveToMain(Activity context, Intent intent)
     {
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_center_from_right, R.anim.slide_left_from_center);
+        context.startActivity(intent);
+        context.overridePendingTransition(R.anim.slide_center_from_right, R.anim.slide_left_from_center);
     }
 
-    public void MoveToActivity(Intent intent)
+    public static void MoveToActivity(Activity context, Intent intent)
     {
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_center_from_right, R.anim.slide_left_from_center);
+        context.startActivity(intent);
+        context.overridePendingTransition(R.anim.slide_center_from_right, R.anim.slide_left_from_center);
     }
 
-    public void BackToActivity(Intent intent)
+    public static void BackToActivity(Activity context, Intent intent)
     {
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_center_from_left, R.anim.slide_right_from_center);
+        context.startActivity(intent);
+        context.overridePendingTransition(R.anim.slide_center_from_left, R.anim.slide_right_from_center);
     }
 
-    public void FinishAnim()
+    public static void FinishAnim(Activity context)
     {
-        finish();
-        overridePendingTransition(R.anim.slide_center_from_left, R.anim.slide_right_from_center);
+        context.finish();
+        context.overridePendingTransition(R.anim.slide_center_from_left, R.anim.slide_right_from_center);
     }
 
 }
